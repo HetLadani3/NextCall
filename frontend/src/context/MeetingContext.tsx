@@ -47,7 +47,11 @@ export const MeetingProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
     // Otherwise, leave any existing call
     if (activeCall) {
-      await activeCall.leave();
+      try {
+        await activeCall.leave();
+      } catch (err) {
+        console.error("Error leaving call in joinMeeting:", err);
+      }
     }
 
     const call = client.call("default", callId);
@@ -61,7 +65,11 @@ export const MeetingProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
   const endCall = async () => {
     if (activeCall) {
-      await activeCall.leave();
+      try {
+        await activeCall.leave();
+      } catch (err) {
+        console.error("Error leaving call in endCall:", err);
+      }
       setActiveCall(null);
     }
     setIsMinimized(false);
