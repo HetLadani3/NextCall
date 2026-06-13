@@ -23,6 +23,10 @@ app.use("/api/auth", authRoutes);
 app.use("/api/stream", streamRoutes);
 app.use("/api/meetings", meetingsRoutes);
 
+app.get("/", (req, res) => {
+  res.send("NextCall API is running successfully!");
+});
+
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok", message: "NextCall Server is running smoothly" });
 });
