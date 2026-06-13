@@ -4,7 +4,7 @@ import "@stream-io/video-react-sdk/dist/css/styles.css";
 import { useAuth } from "../context/AuthContext";
 import { apiFetch } from "../utils/api";
 
-const apiKey = import.meta.env.VITE_STREAM_API_KEY;
+const apiKey = import.meta.env.VITE_STREAM_API_KEY || "qttb6m7xuk9p";
 
 export const StreamVideoProvider = ({ children }: { children: React.ReactNode }) => {
   const [videoClient, setVideoClient] = useState<StreamVideoClient>();
